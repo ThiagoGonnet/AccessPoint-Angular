@@ -9,26 +9,23 @@
     </tr>
   </thead>
   <tbody>
+    @for (concert of concerts; track concert.artist){
     <tr>
       <td>{{concert.artist}}</td>
       <td>{{concert.place}}</td>
       <td>{{concert.date}}</td>
       <td>{{concert.time}}</td>
-      <td>{{concert.available}}</td>
+      @if (concert.available == true){
+        <td>Disponible</td>
+      } @else {
+        <td><span class="badge text-bg-warning">SIN STOCK</span></td>
+      }
     </tr>
-    <tr>
-      <td>{{concert2.artist}}</td>
-      <td>{{concert2.place}}</td>
-      <td>{{concert2.date}}</td>
-      <td>{{concert2.time}}</td>
-      <td>{{concert2.available}}</td>
-    </tr>
-    <tr>
-      <td>{{concert3.artist}}</td>
-      <td>{{concert3.place}}</td>
-      <td>{{concert3.date}}</td>
-      <td>{{concert3.time}}</td>
-      <td>{{concert3.available}}</td>
-    </tr>
+    }
+    @empty {
+      <tr>
+        <td>No hay ningún evento para mostrar!</td>
+      </tr>
+    }
   </tbody>
 </table>
