@@ -6,6 +6,8 @@
       <th>Fecha</th>
       <th>Hora</th>
       <th>Disponible</th>
+      <th>Entradas disponibles</th>
+      <th>Comprar</th>
     </tr>
   </thead>
   <tbody>
@@ -20,6 +22,13 @@
       } @else {
         <td><span class="badge text-bg-warning">SIN STOCK</span></td>
       }
+      <td>{{concert.stock}}</td>
+
+      <td>
+        <button (click)="decrementarCantidad(concert)">-</button>
+        <input type="text" [(ngModel)]="concert.quantity" (keyup)="onChangeQuantity($event, concert)">
+        <button (click)="incrementarCantidad(concert)">+</button>
+      </td>
     </tr>
     }
     @empty {

@@ -16,6 +16,8 @@ export class ListConcerts {
       date: "25/5/2026",
       time: "21:00",
       available: true,
+      stock: 6000,
+      quantity: 0,
     },
     {
       artist: "Roger Waters",
@@ -23,6 +25,8 @@ export class ListConcerts {
       date: "25/10/2026",
       time: "20:00",
       available: false,
+      stock: 0,
+      quantity: 0,
     },
     {
       artist: "Paul McCartney",
@@ -30,8 +34,24 @@ export class ListConcerts {
       date: "23/12/2026",
       time: "21:00",
       available: true,
+      stock: 4500,
+      quantity: 0,
     }
   ];
+
+  decrementarCantidad(concert: Concert) {
+    if (concert.quantity > 0) {
+      concert.quantity--;
+    }
+  }
+  incrementarCantidad(concert: Concert) {
+    if (concert.quantity <= concert.stock && concert.stock > 0) {
+      concert.quantity++;
+    }
+  }
+  onChangeQuantity(event, concert: Concert): void {
+    console.log(event.key);
+  }
   constructor () {
 
   }

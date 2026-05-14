@@ -3,5 +3,7 @@ export interface Concert {
   "place": string,
   "date": string,
   "time": string,
-  "available": boolean
+  "available": boolean,
+  "stock": number,
+  "quantity": number
 }
