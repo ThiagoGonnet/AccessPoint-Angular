@@ -45,12 +45,12 @@ export class ListConcerts {
     }
   }
   incrementarCantidad(concert: Concert) {
-    if (concert.quantity <= concert.stock && concert.stock > 0) {
+    if (concert.quantity < concert.stock && concert.stock > 0) {
       concert.quantity++;
     }
   }
-  onChangeQuantity(event, concert: Concert): void {
-    console.log(event.key);
+  onChangeQuantity(event: Event, concert: Concert): void {
+    console.log(event);
   }
   constructor () {
 
