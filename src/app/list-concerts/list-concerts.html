@@ -1,4 +1,5 @@
-<table class="table">
+<h1>Eventos disponibles</h1>
+<table class="table  text-center">
   <thead>
     <tr>
       <th>Artista</th>
@@ -13,28 +14,55 @@
   <tbody>
     @for (concert of concerts; track concert.artist){
     <tr>
-      <td>{{concert.artist}}</td>
-      <td>{{concert.place}}</td>
-      <td>{{concert.date}}</td>
-      <td>{{concert.time}}</td>
+      <td>{{ concert.artist }}</td>
+      <td>{{ concert.place }}</td>
+      <td>{{ concert.date }}</td>
+      <td>{{ concert.time }}</td>
+
       @if (concert.available == true){
-        <td>Disponible</td>
+        <td>
+          <span class="badge text-bg-success">Disponible</span>
+        </td>
       } @else {
-        <td><span class="badge text-bg-warning">SIN STOCK</span></td>
+        <td>
+          <span class="badge text-bg-warning">SIN STOCK</span>
+        </td>
       }
-      <td>{{concert.stock}}</td>
+
+      <td>{{ concert.stock }}</td>
 
       <td>
-        <button (click)="decrementarCantidad(concert)">-</button>
-        <input type="text" [(ngModel)]="concert.quantity" (keyup)="onChangeQuantity($event, concert)">
-        <button (click)="incrementarCantidad(concert)">+</button>
+        @if (concert.stock>0){
+          <div class="input-group input-group-sm">
+          <button
+            class="btn btn-outline-danger"
+            (click)="decrementarCantidad(concert)">
+            -
+          </button>
+
+          <input
+            type="text"
+            class="form-control text-center"
+            [(ngModel)]="concert.quantity"
+            (keyup)="onChangeQuantity($event, concert)">
+
+          <button
+            class="btn btn-outline-success"
+            (click)="incrementarCantidad(concert)">
+            +
+          </button>
+        </div>
+        }
       </td>
     </tr>
     }
+
     @empty {
-      <tr>
-        <td>No hay ningún evento para mostrar!</td>
-      </tr>
+    <tr>
+      <td colspan="7" class="text-center text-muted">
+        No hay ningún evento para mostrar.
+      </td>
+    </tr>
     }
   </tbody>
 </table>

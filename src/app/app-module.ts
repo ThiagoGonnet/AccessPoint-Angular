@@ -6,11 +6,13 @@ import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { ListConcerts } from './list-concerts/list-concerts';
 import { Cart } from './cart/cart';
+import { AccespointAbout } from './accespoint-about/accespoint-about';
+import { AccespointEvents } from './accespoint-events/accespoint-events';
 
 @NgModule({
-  declarations: [App, ListConcerts, Cart],
+  declarations: [App, ListConcerts, Cart, AccespointAbout, AccespointEvents],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners(), provideClientHydration(withEventReplay())],
   bootstrap: [App],
 })
-export class AppModule { }
+export class AppModule {}
