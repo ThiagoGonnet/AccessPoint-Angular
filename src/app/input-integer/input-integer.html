@@ -1,0 +1,12 @@
+<div class="input-group input-group-sm">
+  <button class="btn btn-outline-danger" (click)="decrementarCantidad(concert)">-</button>
+
+  <input
+    type="text"
+    class="form-control text-center"
+    [(ngModel)]="concert.quantity"
+    (keyup)="onChangeQuantity($event, concert)"
+  />
+
+  <button class="btn btn-outline-success" (click)="incrementarCantidad(concert)">+</button>
+</div>

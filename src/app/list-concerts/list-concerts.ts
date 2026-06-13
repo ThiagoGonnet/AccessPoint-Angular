@@ -39,19 +39,7 @@ export class ListConcerts {
     }
   ];
 
-  decrementarCantidad(concert: Concert) {
-    if (concert.quantity > 0) {
-      concert.quantity--;
-    }
-  }
-  incrementarCantidad(concert: Concert) {
-    if (concert.quantity < concert.stock && concert.stock > 0) {
-      concert.quantity++;
-    }
-  }
-  onChangeQuantity(event: Event, concert: Concert): void {
-    console.log(event);
-  }
+
   constructor () {
 
   }

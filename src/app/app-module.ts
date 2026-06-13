@@ -8,9 +8,10 @@ import { ListConcerts } from './list-concerts/list-concerts';
 import { Cart } from './cart/cart';
 import { AccespointAbout } from './accespoint-about/accespoint-about';
 import { AccespointEvents } from './accespoint-events/accespoint-events';
+import { InputInteger } from './input-integer/input-integer';
 
 @NgModule({
-  declarations: [App, ListConcerts, Cart, AccespointAbout, AccespointEvents],
+  declarations: [App, ListConcerts, Cart, AccespointAbout, AccespointEvents, InputInteger],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners(), provideClientHydration(withEventReplay())],
   bootstrap: [App],
