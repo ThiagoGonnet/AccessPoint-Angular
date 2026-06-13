@@ -10,18 +10,19 @@ import { Concert } from '../interfaces/Concert';
 export class InputInteger {
 
   constructor () { }
-  @Input() concert!: Concert;
-   decrementarCantidad(concert: Concert) {
-    if (this.concert.quantity > 0) {
-      this.concert.quantity--;
+  @Input() quantity!: number;
+  @Input() max!: number;
+   decrementarCantidad() {
+    if (this.quantity > 0) {
+      this.quantity--;
     }
   }
-  incrementarCantidad(concert: Concert) {
-    if (this.concert.quantity < this.concert.stock && this.concert.stock > 0) {
-      this.concert.quantity++;
+  incrementarCantidad() {
+    if (this.quantity < this.max && this.max > 0) {
+      this.quantity++;
     }
   }
-  onChangeQuantity(event: Event, concert: Concert): void {
+  onChangeQuantity(event: Event): void {
     console.log(event);
   }
  }

@@ -33,7 +33,10 @@
 
         <td>
           @if (concert.stock > 0) {
-            <app-input-integer [concert]="concert"></app-input-integer>
+            <app-input-integer
+              [quantity]="concert.quantity"
+              [max]="concert.stock"
+            ></app-input-integer>
           }
         </td>
       </tr>
